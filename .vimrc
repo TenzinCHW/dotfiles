@@ -456,6 +456,8 @@ set relativenumber
 set autoindent
 set softtabstop=4
 
-set foldmethod=indent
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" : "\<TAB>"
