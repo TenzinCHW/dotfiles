@@ -86,6 +86,7 @@ filetype plugin indent on    " required
 "    -> Spell checking
 "    -> Misc
 "    -> Helper functions
+"    -> Plugin Settings
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -189,6 +190,10 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" Margin settings
+set number
+set relativenumber
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -244,6 +249,8 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+set autoindent
+set softtabstop=4
 
 " Linebreak on 500 characters
 set lbr
@@ -252,6 +259,11 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+" Folding uses LSP
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
 
 
 """"""""""""""""""""""""""""""
@@ -363,6 +375,11 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
+" Ctrl+s saves file
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -447,17 +464,14 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin Settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+NERDTreeQuitOpen=1
+nmap <F3> :NERDTreeToggle<CR>
 
-set number
-set relativenumber
-set autoindent
-set softtabstop=4
-
-set foldmethod=expr
-  \ foldexpr=lsp#ui#vim#folding#foldexpr()
-  \ foldtext=lsp#ui#vim#folding#foldtext()
+" Autocomplete
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" : "\<TAB>"
+
