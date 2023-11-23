@@ -18,8 +18,15 @@ curl -sSL https://install.python-poetry.org | python3 -
 export PATH=$PATH:~/.local/bin
 
 
+mkdir ~/apps
+cd ~/apps
 # Install julia
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.4-linux-x86_64.tar.gz
+tar xvf $(ls julia*)
+rm *.tar.gz
+echo "alias julia=$(ls)/bin/julia" >> ~/.profile
 # Install vundle (check if compatible with neovim)
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # Install lazygit
 # Install hyperfine
 # Install fd
