@@ -36,6 +36,10 @@ Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'tomlion/vim-solidity'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'vim-airline/vim-airline'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -449,4 +453,5 @@ set autoindent
 set softtabstop=4
 
 set foldmethod=indent
-
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" : "\<TAB>"
