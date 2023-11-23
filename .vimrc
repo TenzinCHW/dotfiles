@@ -32,7 +32,10 @@ Plugin 'metakirby5/codi.vim'
 Plugin 'w0rp/ale'
 Plugin 'tpope/vim-surround'
 Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'tomlion/vim-solidity'
+Plugin 'sainnhe/gruvbox-material'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,11 +51,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-set number
-set relativenumber
-set autoindent
-set softtabstop=4
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -196,7 +194,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme pablo
+    colorscheme gruvbox-material
 catch
 endtry
 
@@ -439,4 +437,14 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
+set number
+set relativenumber
+set autoindent
+set softtabstop=4
 
