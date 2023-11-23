@@ -468,7 +468,7 @@ endfunction
 " => Plugin Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
-NERDTreeQuitOpen=1
+let NERDTreeQuitOnOpen=1
 nmap <F3> :NERDTreeToggle<CR>
 
 " Autocomplete
