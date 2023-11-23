@@ -448,3 +448,5 @@ set relativenumber
 set autoindent
 set softtabstop=4
 
+set foldmethod=indent
+
