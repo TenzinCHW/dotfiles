@@ -6,6 +6,8 @@ cd ~/apps/vcpkg; ./bootstrap-vcpkg.sh
 winget.exe install Microsoft.PowerToys -s winget
 
 # Install komorebi
+git clone https://github.com/LGUG2Z/komorebi.git ~/apps/komorebi
+cd ~/apps/komorebi
 cargo +stable install --path komorebi --locked
 cargo +stable install --path komorebic --locked
 cargo +stable install --path komorebic-no-console --locked
