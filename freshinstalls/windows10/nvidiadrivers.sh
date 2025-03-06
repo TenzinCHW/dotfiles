@@ -6,4 +6,4 @@ wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/
 sudo dpkg-i cuda-repo-wsl-ubuntu-12-8-local_12.8.0-1_amd64.deb
 sudo cp /var/cuda-repo-wsl-ubuntu-12-8-local/cuda-*-keyring.gpg /usr/share/keyrings
 sudo apt-get update
-sudo apt-get install -y cuda-toolkit-12-8
+sudo apt-get install -y cuda-toolkit-12-8 nvidia-utils-550
