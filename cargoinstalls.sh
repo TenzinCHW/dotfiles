@@ -23,3 +23,4 @@ cargo install speedtest-rs
 cargo install wiki-tui
 cargo install rtx-cli
 cargo install juliaup
+cargo install git-delta
